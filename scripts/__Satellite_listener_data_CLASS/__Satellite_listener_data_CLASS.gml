@@ -1,5 +1,5 @@
 
-function Satellite_listener_data_class(event, callback_function, scope_reference, data, once) constructor{
+function SatelliteListenerClass(event, callback_function, scope_reference, data, once) constructor{
 	__data = data;		/// The data will be passed with the callback
 	__event = event;	/// The event it will listen to happen
 	

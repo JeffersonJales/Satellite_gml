@@ -1,4 +1,4 @@
 
 function Satellite(scope_ref = id, is_persistant = persistent){
-	return new Satellite_class(scope_ref, is_persistant);
+	return new __SatelliteClass(scope_ref, is_persistant);
 }

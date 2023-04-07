@@ -1,5 +1,5 @@
 
-function Satellite_class(instance_scope, instance_persist) constructor{
+function __SatelliteClass(instance_scope, instance_persist) constructor{
 	listeners_data = ds_list_create();
 	
 	scope_reference = instance_scope;
@@ -19,7 +19,7 @@ function Satellite_class(instance_scope, instance_persist) constructor{
 	
 	/// Add a new event listner to the Satellite
 	static add = function(event, callback, data = undefined, once = false){
-		var _listener_data = new Satellite_listener_data_class(event, callback, data, scope_reference, once);
+		var _listener_data = new SatelliteListenerClass(event, callback, scope_reference, data, once);
 		ds_list_add(listeners_data, weak_ref_create(_listener_data));
 		__Satellite_add_listener(_listener_data);
 		
@@ -33,6 +33,7 @@ function Satellite_class(instance_scope, instance_persist) constructor{
 		for(var i = 0; i < ds_list_size(listeners_data); i++){
 			_ldata = listeners_data[| i];
 			if(weak_ref_alive(_ldata)){
+				_ldata = _ldata.ref;
 				if(_ldata.__event == event){
 					__Satellite_remove_listener(_ldata);
 					ds_list_delete(listeners_data, i);
@@ -52,10 +53,10 @@ function Satellite_class(instance_scope, instance_persist) constructor{
 		
 		var _ldata;
 		for(var i = 0; i < ds_list_size(listeners_data); i++){
-			_ldata = listener_data[| i];
-			if(weak_ref_alive(_ldata)) __Satellite_remove_listener(_ldata);
+			_ldata = listeners_data[| i];
+			if(weak_ref_alive(_ldata)) __Satellite_remove_listener(_ldata.ref);
 		}
-		ds_list_clear(listener_data);
+		ds_list_clear(listeners_data);
 		
 		return self;
 	}
@@ -77,8 +78,8 @@ function Satellite_class(instance_scope, instance_persist) constructor{
 			/// Store listener data and remove listeners
 			paused_data = array_create(ds_list_size(listener_data));
 			for(var i = 0; i < ds_list_size(listener_data); i++){
-				_ldata = listener_data[| i];
-				paused_data[i] = new Satellite_listener_data_class(_ldata.__event, _ldata.callback, scope_reference, _ldata.__data, _ldata.__only_one_time);
+				_ldata = listener_data[| i].ref;
+				paused_data[i] = new SatelliteListenerClass(_ldata.__event, _ldata.callback, scope_reference, _ldata.__data, _ldata.__only_one_time);
 				__Satellite_remove_listener(_ldata);
 			}
 			
@@ -95,7 +96,7 @@ function Satellite_class(instance_scope, instance_persist) constructor{
 			
 			/// Add listeners again
 			for(var i = 0; i < array_length(paused_data); i++){
-				ds_list_add(listener_data, paused_data[i]);
+				ds_list_add(listeners_data, weak_ref_create(paused_data[i]));
 				__Satellite_add_listener(paused_data[i]);
 			}
 			
