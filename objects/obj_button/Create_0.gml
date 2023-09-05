@@ -1,5 +1,5 @@
 /// @desc 
-satellite_button = Satellite();
+satellite_button = satallite();
 
 satellite_button.
 	add(MESSAGE_KEYBOARD_PRESSED, function(){

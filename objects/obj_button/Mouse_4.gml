@@ -1,1 +1,1 @@
-SatelliteBroadcast(message_event);
+satellite_broadcast(message_event);

@@ -1,2 +1,2 @@
 /// @desc SPACE PRESSED
-SatelliteBroadcast(MESSAGE_KEYBOARD_PRESSED);
+satellite_broadcast(MESSAGE_KEYBOARD_PRESSED);

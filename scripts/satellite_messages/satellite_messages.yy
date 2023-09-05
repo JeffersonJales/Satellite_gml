@@ -1,9 +1,9 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "SatelliteReset",
-  "isDnD": false,
+  "name": "satellite_messages",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "Satelllite",
     "path": "folders/Satelllite.yy",

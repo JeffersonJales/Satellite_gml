@@ -1,9 +1,9 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "SatelliteBroadcast",
-  "isDnD": false,
+  "name": "satellite_broadcast",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "Satelllite",
     "path": "folders/Satelllite.yy",

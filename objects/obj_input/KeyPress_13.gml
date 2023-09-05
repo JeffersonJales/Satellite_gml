@@ -1,3 +1,3 @@
 /// @desc 
-SatelliteBroadcast(MESSAGE_KEYBOARD_ENTER_PRESSED);
+satellite_broadcast(MESSAGE_KEYBOARD_ENTER_PRESSED);
 
