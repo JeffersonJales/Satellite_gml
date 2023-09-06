@@ -26,7 +26,7 @@ Good for dealing with persistent rooms
 - satellite_reset - Reset all satellites and listeners (Reset all system)
 
 ## Satellite Config
-SATELLITE_STACK_TRACE - Boolean - Will show in console who sent the message an who received ( You can also comment the stack trace )
+SATELLITE_STACK_TRACE - Boolean - Will show in console who sent the message an who received ( You can also comment the stack trace ) <br>
 SATELLITE_RETURN_DATA_TO_AUTO_DESTROY - Any - Case the listener callback returns this value, it will disable this listener
 
 # What Changed?
