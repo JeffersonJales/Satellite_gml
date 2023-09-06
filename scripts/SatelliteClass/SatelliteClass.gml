@@ -1,8 +1,9 @@
-function SatelliteClass() constructor{
+function SatelliteClass(_is_persistent, _is_paused) constructor{
 	listeners_data_arr = [];
 	
-	is_paused = false;
-	scope_room = room; 
+	is_paused = _is_paused;
+	scope_room = _is_persistent ? undefined : room; 
+	scope_room_pers = room;
 	
 	/// Add a new event listner to the Satellite
 	static add = function(event, callback, data = undefined, once = false){
@@ -21,7 +22,7 @@ function SatelliteClass() constructor{
 		for(var i = 0; i < array_length(listeners_data_arr); i++){
 			if(listeners_data_arr[i].event == event){
 				listeners_data_arr[i].marked_to_destroy = true;
-				delete listeners_data_arr[i];
+				ds_queue_enqueue(global.__satellite_listeners_remove_queue, listeners_data_arr[i]);
 				array_delete(listeners_data_arr, i, 1);
 				break;
 			}
@@ -34,7 +35,7 @@ function SatelliteClass() constructor{
 	static remove_all = function(){
 		for(var i = 0; i < array_length(listeners_data_arr); i++){
 			listeners_data_arr[i].marked_to_destroy = true;
-			delete listeners_data_arr[i];
+			ds_queue_enqueue(global.__satellite_listeners_remove_queue, listeners_data_arr[i]);
 		}
 		
 		listeners_data_arr = [];
@@ -74,5 +75,15 @@ function SatelliteClass() constructor{
 				break;
 			}
 		}
+		
+		__satellite_clean_up();
 	}
+
+	/// Will not be affected by Satellite functions
+	static set_persist = function(flag){
+		scope_room = flag ? undefined : scope_room_pers;
+		return self;
+	}
+
+	ds_list_add(global.__satellite_all, weak_ref_create(self));
 }

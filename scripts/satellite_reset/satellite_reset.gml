@@ -8,4 +8,7 @@ function satellite_reset(){
 	}
 	
 	ds_map_clear(global.__satellite_listeners);
+	
+	ds_queue_clear(global.__satellite_listeners_remove_queue);
+	global.__satellite_listeners_remove_stack_count = 0;
 }

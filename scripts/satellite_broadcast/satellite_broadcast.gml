@@ -1,5 +1,7 @@
 function satellite_broadcast(_event, _broadcast_data = undefined){
 	
+	global.__satellite_listeners_remove_stack_count++;
+	
 	/// Stack Trace - init
 	var _name = instance_exists(other) ? object_get_name(other.object_index) : "Unknow";
 	var _satellite_stack_trace = __satellite_trace("<Satellite> Event: ", _event, " | By: ", _name, " | Data: ", _broadcast_data, "\n");
@@ -29,7 +31,9 @@ function satellite_broadcast(_event, _broadcast_data = undefined){
 		}
 	}
 	
-	
 	/// Stack Trace End
 	if(SATELLITE_STACK_TRACE) show_debug_message(_satellite_stack_trace + "Broacast end");
+	
+	--global.__satellite_listeners_remove_stack_count;
+	__satellite_clean_up();
 }

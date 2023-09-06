@@ -1,9 +1,9 @@
 {
   "FolderOrderSettings": [
+    {"name":"Other","order":11,"path":"folders/Satelllite/Other.yy",},
+    {"name":"Satellite Room","order":10,"path":"folders/Satelllite/Satellite Room.yy",},
     {"name":"Classes","order":2,"path":"folders/Satelllite/System/Classes.yy",},
     {"name":"Satellite Room","order":3,"path":"folders/Satelllite/System/Satellite Room.yy",},
-    {"name":"Satellite Room","order":10,"path":"folders/Satelllite/Satellite Room.yy",},
-    {"name":"Other","order":11,"path":"folders/Satelllite/Other.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_input","order":7,"path":"objects/obj_input/obj_input.yy",},
@@ -17,6 +17,7 @@
     {"name":"__satellite_trace","order":4,"path":"scripts/__satellite_trace/__satellite_trace.yy",},
     {"name":"__satellite_add_listener","order":1,"path":"scripts/__satellite_add_listener/__satellite_add_listener.yy",},
     {"name":"satellite_messages","order":2,"path":"scripts/satellite_messages/satellite_messages.yy",},
+    {"name":"__satellite_clean_up","order":5,"path":"scripts/__satellite_clean_up/__satellite_clean_up.yy",},
     {"name":"obj_persist","order":2,"path":"objects/obj_persist/obj_persist.yy",},
     {"name":"satellite","order":3,"path":"scripts/satellite/satellite.yy",},
     {"name":"satellite_reset","order":1,"path":"scripts/satellite_reset/satellite_reset.yy",},
