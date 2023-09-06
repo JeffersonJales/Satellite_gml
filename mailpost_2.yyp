@@ -42,7 +42,6 @@
     {"id":{"name":"__satellite_add_listener","path":"scripts/__satellite_add_listener/__satellite_add_listener.yy",},},
     {"id":{"name":"satellite_messages","path":"scripts/satellite_messages/satellite_messages.yy",},},
     {"id":{"name":"__satellite_clean_up","path":"scripts/__satellite_clean_up/__satellite_clean_up.yy",},},
-    {"id":{"name":"satellite_flush","path":"scripts/satellite_flush/satellite_flush.yy",},},
     {"id":{"name":"obj_persist","path":"objects/obj_persist/obj_persist.yy",},},
     {"id":{"name":"satellite","path":"scripts/satellite/satellite.yy",},},
     {"id":{"name":"satellite_reset","path":"scripts/satellite_reset/satellite_reset.yy",},},
